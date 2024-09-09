@@ -6,17 +6,19 @@ const config: Config = {
   title: 'Documentation',
   tagline: 'purescripts.net',
   favicon: 'img/logo.png',
+  organizationName: 'purescripts-fivem',
+  projectName: 'purescripts-fivem.github.io',
+  trailingSlash: false,
 
   // Set the production url of your site here
-  url: 'https://docs.purescripts.com',
+  url: 'https://purescripts-fivem.github.io/',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
+  deploymentBranch: 'deploy',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
