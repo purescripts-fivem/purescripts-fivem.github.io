@@ -24,3 +24,20 @@ hocusUrl = false,
 oneEditor = true, -- this is only used if you use the offline editor, this is very recommended!
 useSockets = true, -- sockets meaning synced report other than summary, this is such as officers involved, title etc - this is very recommended!
 ```
+
+### Permission Based System
+
+Throughout the MDT, there is a number of different permission checks such as your standard job check, and then the actual permissions that set within the MDT
+
+```lua
+    postChat = 0, -- To be able to post a chat
+    postBulletin = 4, -- To be able to post a bulletin
+    editCharge = 12, -- To be able to edit a charge within the charges section
+    manageTags = 4, -- To manage tags on the performance view
+    deleteRadio = 3, -- To be able to delete a radio station
+    deleteBulletin = 4, -- To be able to delete a bulletin
+    deleteReport = 12, -- To be able to delete a report
+    createCourt = 4 -- To be able to create a court case
+```
+
+Set these to a grade higher than you have avaiable if you want to stop them using completely such as the above being 12 and the max rank being 10 ensures no one can access this

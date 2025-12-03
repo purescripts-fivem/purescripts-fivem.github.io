@@ -22,3 +22,29 @@
   padding: 8px !important;
   background-color: #242526 !important;
 }
+
+/* keyword (local, function, return) */
+.token.keyword {
+  color: #ff7ab2 !important;
+}
+
+/* function names */
+.token.function {
+  color: #82aaff !important;
+}
+
+/* strings */
+.token.string {
+  color: #c3e88d !important;
+}
+
+/* parameters (@param, boolean) */
+.token.parameter,
+.token.attr-name {
+  color: #ffcb6b !important;
+}
+
+/* exports, tables, object keys */
+.token.property {
+  color: #c792ea !important;
+}
