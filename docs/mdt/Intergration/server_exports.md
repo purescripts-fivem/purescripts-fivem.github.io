@@ -36,6 +36,17 @@ Within the MDT, it works of a 3 tier charge system 'Infraction', 'Misdemeanor' a
 local amount = exports['pure_mdt']:GetTotalCharges(uniqueId)
 ```
 
+### Change Callsign
+
+This will change their callsign, ensure they already have a callsign on the MDT
+
+```lua
+---@param src number
+---@param callsign string
+---@return boolean
+local success = exports['pure_mdt']:NewCallsign(src, callsign)
+```
+
 ## Dispatch
 
 ### Add Dispatch Call

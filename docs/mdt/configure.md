@@ -41,3 +41,38 @@ Throughout the MDT, there is a number of different permission checks such as you
 ```
 
 Set these to a grade higher than you have avaiable if you want to stop them using completely such as the above being 12 and the max rank being 10 ensures no one can access this
+
+### QB Core Exclusive
+
+For QB Core within the radio system, you will need to navigate to qb-radio/client
+
+```lua title='qb-radio/client'
+local function connecttoradio(channel)
+    if channel > Config.MaxFrequency or channel <= 0 then QBCore.Functions.Notify(Lang:t('restricted_channel_error'), 'error') return false end
+    if Config.RestrictedChannels[channel] ~= nil then
+        if not Config.RestrictedChannels[channel][PlayerData.job.name] or not PlayerData.job.onduty then
+            QBCore.Functions.Notify(Lang:t('restricted_channel_error'), 'error')
+            return false
+        end
+    end
+    RadioChannel = channel
+    if onRadio then
+        exports["pma-voice"]:setRadioChannel(0)
+    else
+        onRadio = true
+        exports["pma-voice"]:setVoiceProperty("radioEnabled", true)
+    end
+    exports["pma-voice"]:setRadioChannel(channel)
+    if SplitStr(tostring(channel), ".")[2] ~= nil and SplitStr(tostring(channel), ".")[2] ~= "" then
+        QBCore.Functions.Notify(Lang:t('joined_to_radio', {channel = channel .. ' MHz'}), 'success')
+    else
+        QBCore.Functions.Notify(Lang:t('joined_to_radio', {channel = channel .. '.00 MHz'}), 'success')
+    end
+    return true
+end
+
+-- Add this line:
+exports('connecttoradio', connecttoradio)
+```
+
+This then allows the ConnectRadio function in qbcore to connect to the radio system default to qbcore
