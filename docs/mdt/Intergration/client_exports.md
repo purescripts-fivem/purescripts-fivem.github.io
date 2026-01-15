@@ -15,6 +15,14 @@ This will return a boolean if the MDT is open or not
 local open = exports['pure_mdt']:IsMDTOpen()
 ```
 
+### Open MDT
+
+This will open the MDT from the client
+
+```lua
+exports['pure_mdt']:OpenMDTClient()
+```
+
 ## Docket
 
 All of these exports and events can be seen in `client/framework/*yourframework*/` `CreateTarget()`

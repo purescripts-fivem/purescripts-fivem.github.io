@@ -79,7 +79,7 @@ const config: Config = {
       title: 'Purescripts Docs',
       logo: {
         alt: 'Purescripts',
-        src: 'img/logo.svg',
+        src: 'img/pure_logo.png',
       },
       items: [
         // {
