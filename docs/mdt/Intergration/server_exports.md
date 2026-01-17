@@ -47,6 +47,28 @@ This will change their callsign, ensure they already have a callsign on the MDT
 local success = exports['pure_mdt']:NewCallsign(src, callsign)
 ```
 
+## Profiles
+
+### Update Mugshot
+
+This will update the persons mugshot
+
+```lua
+---@param mugshot string
+---@param charId string
+exports['pure_mdt']:UpdateMugshot(mugshot, charId)
+```
+
+### Add Gallery Image
+
+This will add a gallery image to the persons profile
+
+```lua
+---@param image string
+---@param charId string
+exports['pure_mdt']:AddGallery(image, charId)
+```
+
 ## Dispatch
 
 ### Add Dispatch Call
