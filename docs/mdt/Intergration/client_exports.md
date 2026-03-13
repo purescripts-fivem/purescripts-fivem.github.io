@@ -23,6 +23,15 @@ This will open the MDT from the client
 exports['pure_mdt']:OpenMDTClient()
 ```
 
+### Open Report with Id
+
+This will open the MDT then set report to the id given
+
+```lua
+---@param number
+exports['pure_mdt']:OpenReportWithId(id)
+```
+
 ## Docket
 
 All of these exports and events can be seen in `client/framework/*yourframework*/` `CreateTarget()`

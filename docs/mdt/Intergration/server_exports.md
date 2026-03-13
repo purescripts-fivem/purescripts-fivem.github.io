@@ -80,12 +80,13 @@ This will add a disptach call, it is essential you add this to your dispatch scr
     -- code: string;
     -- title: string;
     -- id: number;
-    -- colour: string;
+    -- colour: 'green' | 'orange' | 'red' | 'blue' | 'yellow';
     -- coords: number[];
     -- jobs: string[];
     -- createCall: boolean;
     -- timestamp: number;
     -- location: string;
+    -- sound: string;
     -- callArray: {
         -- timestamp: number;
         -- location: string;
@@ -97,6 +98,12 @@ This will add a disptach call, it is essential you add this to your dispatch scr
         -- number: string;
         -- weapon: string;
     -- }
+    -- blipData = {
+    --     radius: number | false, -- If the blip is a radius
+    --     sprite: number, -- Sprite of the blip
+    --     colour: number, -- Colour of the blip
+    --     scale: number, -- Scale of the blip
+    -- },
 -- }
 local id = exports['pure_mdt']:AddDispatchCall(data)
 ```
@@ -146,4 +153,38 @@ if metadata.registered ~= false and (metadata.ammo or item.name == 'WEAPON_TASER
     metadata.serial = GenerateSerial(metadata.serial)
     exports['pure_mdt']:RegisterWeapon(metadata.serial, metadata.registered, string.gsub(item.name, 'WEAPON_', ''))
 end
+```
+
+## Vehicles
+
+### Check Vehicle Points
+
+This is for checking a vehicles points in which is displayed on the MDT
+
+```lua
+---@param plate string
+---@return integear
+local points = exports['pure_mdt']:CheckVehiclePoints(plate)
+```
+
+### Add Vehicle Points
+
+This is for adding points to a vehicle
+
+```lua
+---@param plate string
+---@param amount number
+---@return boolean
+local success = exports['pure_mdt']:AddVehiclePoints(plate, amount)
+```
+
+### Remove Vehicle Points
+
+This is for removing points to a vehicle
+
+```lua
+---@param plate string
+---@param amount number
+---@return boolean
+local success = exports['pure_mdt']:RemoveVehiclePoints(plate, amount)
 ```
