@@ -76,6 +76,7 @@ exports['pure_mdt']:AddGallery(image, charId)
 This will add a disptach call, it is essential you add this to your dispatch script in order to sync them, this returns the dispatch id
 
 ```lua
+-- CallDataType
 -- data: {
     -- code: string;
     -- title: string;
@@ -103,6 +104,7 @@ This will add a disptach call, it is essential you add this to your dispatch scr
     --     sprite: number, -- Sprite of the blip
     --     colour: number, -- Colour of the blip
     --     scale: number, -- Scale of the blip
+    --     timeout: number, -- In minutes, defaults to 10
     -- },
 -- }
 local id = exports['pure_mdt']:AddDispatchCall(data)
@@ -187,4 +189,22 @@ This is for removing points to a vehicle
 ---@param amount number
 ---@return boolean
 local success = exports['pure_mdt']:RemoveVehiclePoints(plate, amount)
+```
+
+# Server Events
+
+## Dispatch
+
+### Attached to Call
+
+This will be hit when a player has attached to a call
+
+```lua
+---@param playerId number
+---@param callerSource number
+---@param callId number
+---@param callData CallDataType (See ddd to dispatch above)
+RegisterNetEvent('pure_mdt:playerAttached', function (playerId, callerSource, callId, callData)
+    print('pure_mdt:playerAttached: ', playerId, callerSource, callId, json.encode(callData, {indent = true}))
+end)
 ```
